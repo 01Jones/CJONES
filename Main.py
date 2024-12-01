@@ -35,9 +35,6 @@ elif menu == "Contact":
 st.title("Welcome to My Streamlit App!")
 st.write("This is a basic Streamlit app hosted on GitHub. Explore its features below!")
 
-# Sidebar
-st.sidebar.header("Navigation")
-
 # User Input
 st.header("User Input Form")
 name = st.text_input("What's your name?")
