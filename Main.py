@@ -14,7 +14,7 @@ import requests
 # Sidebar navigation
 st.sidebar.title("Navigation")
 st.sidebar.write("Use this sidebar to navigate.")
-menu = st.sidebar.radio("Go to", ["Home", "About", "Contact"])
+menu = st.sidebar.radio("Go to", ["Home", "X/Twitter", "Pending"])
 
 # Main content based on navigation selection
 if menu == "Home":
