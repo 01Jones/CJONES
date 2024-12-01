@@ -7,7 +7,7 @@ import streamlit as st
 import pandas as pd
 import requests
 import twikit
-
+from twikit import client, too many requests 
 
 
 
