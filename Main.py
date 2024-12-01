@@ -7,6 +7,29 @@ import streamlit as st
 import pandas as pd
 
 
+
+
+
+# Sidebar navigation
+st.sidebar.title("Navigation")
+menu = st.sidebar.radio("Go to", ["Home", "About", "Contact"])
+
+# Main content based on navigation selection
+if menu == "Home":
+    st.title("Home")
+    st.write("Welcome to the Home page!")
+elif menu == "About":
+    st.title("About")
+    st.write("This app demonstrates a basic sidebar navigation.")
+elif menu == "Contact":
+    st.title("Contact")
+    st.write("Feel free to contact us at example@example.com.")
+
+
+
+
+
+
 # Title and description
 st.title("Welcome to My Streamlit App!")
 st.write("This is a basic Streamlit app hosted on GitHub. Explore its features below!")
