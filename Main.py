@@ -8,3 +8,12 @@ import pandas as pd
 import pandas_datareader.data as web
 import matplotlib.pyplot as plt
 import requests
+
+
+
+
+#Title & Header
+if option == 'Home':
+    st.header('C. Jones')
+    
+    st.subheader("Quantitative Research Portfolio")
