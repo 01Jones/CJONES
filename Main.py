@@ -12,6 +12,7 @@ import pandas as pd
 
 # Sidebar navigation
 st.sidebar.title("Navigation")
+st.sidebar.write("Use this sidebar to navigate.")
 menu = st.sidebar.radio("Go to", ["Home", "About", "Contact"])
 
 # Main content based on navigation selection
@@ -36,7 +37,6 @@ st.write("This is a basic Streamlit app hosted on GitHub. Explore its features b
 
 # Sidebar
 st.sidebar.header("Navigation")
-st.sidebar.write("Use this sidebar to navigate.")
 
 # User Input
 st.header("User Input Form")
