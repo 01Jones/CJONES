@@ -4,6 +4,8 @@
 # app.py
 
 import streamlit as st
+import pandas as pd
+
 
 # Title and description
 st.title("Welcome to My Streamlit App!")
