@@ -7,7 +7,7 @@ import streamlit as st
 import pandas as pd
 import requests
 import twikit
-from twikit import client, too many requests 
+import tweepy
 
 # Input your API credentials
 api_key = st.text_input("5Od9JIeK9BDVnOjjgQvvSdVAh", type="password")
