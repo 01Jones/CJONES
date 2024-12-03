@@ -5,6 +5,7 @@
 
 import streamlit as st
 import pandas as pd
+from datetime import datetime, timedelta
 import requests
 import twikit
 import tweepy
@@ -16,42 +17,6 @@ access_token = st.text_input("744622183-PYWccpQMhkATqVZpERjasovNDcer3U54bdDuNRPY
 access_token_secret = st.text_input("GGJcu8ksG3lSrnlOa4vl3xWn7uFhD0eO1uyRA4Mwn08Vx", type="password")
 
 #Bearer AAAAAAAAAAAAAAAAAAAAAD5OxQEAAAAAXI1jaL%2FDeiCB6yERuuax5dIm%2BuU%3DtHW0CzBCgwgHX7nQgrCRbHlFNYsfaDnEmmLBkhnrTC8XmymcHV
-
-
-# Sidebar navigation
-st.sidebar.title("Navigation")
-st.sidebar.write("Use this sidebar to navigate.")
-menu = st.sidebar.radio("Go to", ["Home", "X/Twitter", "Pending"])
-
-
-#TWITTER
-st.title("Twitter Tracker")
-st.write("This app fetches the total number of tweets mentioning 'AAPL' in the last 7 days.")
-if st.button("Fetch Tweet Count"):
-    if not all([api_key, api_secret, access_token, access_token_secret]):
-        st.error("Please provide all API credentials.")
-    else:
-        try:
-            # Authenticate to Twitter
-            auth = tweepy.OAuth1UserHandler(api_key, api_secret, access_token, access_token_secret)
-            api = tweepy.API(auth)
-            
-            # Fetch tweets using Tweepy Cursor
-            query = "AAPL -filter:retweets"
-            tweets = tweepy.Cursor(api.search_tweets, q=query, lang="en", result_type="recent").items(100)
-
-            # Count tweets
-            tweet_count = len(list(tweets))
-            st.success(f"Total tweets mentioning 'AAPL' in the last 7 days: {tweet_count}")
-
-        except Exception as e:
-            st.error(f"An error occurred: {e}")
-
-
-
-
-
-
 
 
 
@@ -72,21 +37,68 @@ elif menu == "Contact":
 
 
 
+# Streamlit app title
+st.title("Ticker Tweet Tracker")
+st.write("Enter a stock ticker to see the total number of tweets mentioning it over 1 day, 7 days, and 30 days.")
+
+# Input box for ticker
+ticker = st.text_input("Enter a Ticker Symbol (e.g., AAPL, TSLA, MSFT):").strip()
+
+# Input for API Bearer Token
+bearer_token = st.text_input("Enter your Twitter API Bearer Token:", type="password")
+
+# Function to fetch tweet counts
+def fetch_tweet_counts(query, start_time, end_time, bearer_token):
+    """
+    Fetch tweet counts using Twitter API v2 'Tweet Counts' endpoint.
+    """
+    url = "https://api.twitter.com/2/tweets/counts/recent"
+    headers = {"Authorization": f"Bearer {bearer_token}"}
+    params = {"query": query, "granularity": "day", "start_time": start_time, "end_time": end_time}
+    
+    response = requests.get(url, headers=headers, params=params)
+    if response.status_code == 200:
+        data = response.json()
+        tweet_count = sum([entry["tweet_count"] for entry in data.get("data", [])])
+        return tweet_count
+    else:
+        st.error(f"Error {response.status_code}: {response.text}")
+        return None
+
+# Button to fetch tweet counts
+if st.button("Fetch Tweet Counts"):
+    if not ticker or not bearer_token:
+        st.error("Please enter both a ticker symbol and your Twitter API Bearer Token.")
+    else:
+        try:
+            # Define time periods
+            end_time = datetime.utcnow().isoformat("T") + "Z"  # Current time in UTC
+            one_day_ago = (datetime.utcnow() - timedelta(days=1)).isoformat("T") + "Z"
+            seven_days_ago = (datetime.utcnow() - timedelta(days=7)).isoformat("T") + "Z"
+            thirty_days_ago = (datetime.utcnow() - timedelta(days=30)).isoformat("T") + "Z"
+
+            # Define query
+            query = f"{ticker} -is:retweet"
+
+            # Fetch tweet counts
+            st.write("Fetching tweet counts...")
+            one_day_count = fetch_tweet_counts(query, one_day_ago, end_time, bearer_token)
+            seven_day_count = fetch_tweet_counts(query, seven_days_ago, end_time, bearer_token)
+            thirty_day_count = fetch_tweet_counts(query, thirty_days_ago, end_time, bearer_token)
+
+            # Display results
+            if one_day_count is not None and seven_day_count is not None and thirty_day_count is not None:
+                st.success("Tweet counts fetched successfully!")
+                data = {
+                    "Time Period": ["Last 1 Day", "Last 7 Days", "Last 30 Days"],
+                    "Tweet Count": [one_day_count, seven_day_count, thirty_day_count]
+                }
+                df = pd.DataFrame(data)
+                st.table(df)
+
+        except Exception as e:
+            st.error(f"An error occurred: {e}")
 
 
 
-# Title and description
-st.title("Welcome to My Streamlit App!")
-st.write("This is a basic Streamlit app hosted on GitHub. Explore its features below!")
-
-# User Input
-st.header("User Input Form")
-name = st.text_input("What's your name?")
-if name:
-    st.write(f"Hello, {name}! Thanks for visiting.")
-
-# Display a chart
-st.header("Sample Chart")
-data = {"Category": ["A", "B", "C"], "Values": [10, 20, 30]}
-st.bar_chart(data)
 
