@@ -11,11 +11,10 @@ import twikit
 import tweepy
 
 # Input your API credentials
-api_key = st.text_input("5Od9JIeK9BDVnOjjgQvvSdVAh", type="password")
-api_secret = st.text_input("djtjd1gRUvTki5YRLl006rGsjpQ3SzMJYfji317XvE1XYBSrrf", type="password")
-access_token = st.text_input("744622183-PYWccpQMhkATqVZpERjasovNDcer3U54bdDuNRPY", type="password")
-access_token_secret = st.text_input("GGJcu8ksG3lSrnlOa4vl3xWn7uFhD0eO1uyRA4Mwn08Vx", type="password")
-
+api_key = "5Od9JIeK9BDVnOjjgQvvSdVAh"
+api_secret = "djtjd1gRUvTki5YRLl006rGsjpQ3SzMJYfji317XvE1XYBSrrf"
+access_token = "744622183-PYWccpQMhkATqVZpERjasovNDcer3U54bdDuNRPY"
+access_token_secret = "GGJcu8ksG3lSrnlOa4vl3xWn7uFhD0eO1uyRA4Mwn08Vx"
 #Bearer AAAAAAAAAAAAAAAAAAAAAD5OxQEAAAAAXI1jaL%2FDeiCB6yERuuax5dIm%2BuU%3DtHW0CzBCgwgHX7nQgrCRbHlFNYsfaDnEmmLBkhnrTC8XmymcHV
 
 
@@ -45,7 +44,7 @@ st.write("Enter a stock ticker to see the total number of tweets mentioning it o
 ticker = st.text_input("Enter a Ticker Symbol (e.g., AAPL, TSLA, MSFT):").strip()
 
 # Input for API Bearer Token
-bearer_token = st.text_input("Enter your Twitter API Bearer Token:", type="password")
+bearer_token = st.text_input("AAAAAAAAAAAAAAAAAAAAAD5OxQEAAAAAXI1jaL%2FDeiCB6yERuuax5dIm%2BuU%3DtHW0CzBCgwgHX7nQgrCRbHlFNYsfaDnEmmLBkhnrTC8XmymcHV", type="password")
 
 # Function to fetch tweet counts
 def fetch_tweet_counts(query, start_time, end_time, bearer_token):
