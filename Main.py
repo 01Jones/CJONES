@@ -33,7 +33,7 @@ st.title("Ticker Tweet Tracker")
 st.write("Enter a stock ticker to see the total number of tweets mentioning it over 1 day, 7 days, and 30 days.")
 
 # Input box for ticker
-ticker = st.text_input("Enter a Ticker Symbol (e.g., AAPL, TSLA, MSFT):").strip()
+ticker = st.text_input("Enter a Ticker Symbol (e.g., $AAPL, $TSLA, $MSFT):").strip()
 
 # Input for API Bearer Token
 bearer_token = "AAAAAAAAAAAAAAAAAAAAAD5OxQEAAAAAXI1jaL%2FDeiCB6yERuuax5dIm%2BuU%3DtHW0CzBCgwgHX7nQgrCRbHlFNYsfaDnEmmLBkhnrTC8XmymcHV"
