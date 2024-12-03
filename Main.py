@@ -23,6 +23,40 @@ st.sidebar.title("Navigation")
 st.sidebar.write("Use this sidebar to navigate.")
 menu = st.sidebar.radio("Go to", ["Home", "X/Twitter", "Pending"])
 
+
+#TWITTER
+st.title("Twitter Tracker")
+st.write("This app fetches the total number of tweets mentioning 'AAPL' in the last 7 days.")
+if st.button("Fetch Tweet Count"):
+    if not all([api_key, api_secret, access_token, access_token_secret]):
+        st.error("Please provide all API credentials.")
+    else:
+        try:
+            # Authenticate to Twitter
+            auth = tweepy.OAuth1UserHandler(api_key, api_secret, access_token, access_token_secret)
+            api = tweepy.API(auth)
+            
+            # Fetch tweets using Tweepy Cursor
+            query = "AAPL -filter:retweets"
+            tweets = tweepy.Cursor(api.search_tweets, q=query, lang="en", result_type="recent").items(100)
+
+            # Count tweets
+            tweet_count = len(list(tweets))
+            st.success(f"Total tweets mentioning 'AAPL' in the last 7 days: {tweet_count}")
+
+        except Exception as e:
+            st.error(f"An error occurred: {e}")
+
+
+
+
+
+
+
+
+
+
+
 # Main content based on navigation selection
 if menu == "Home":
     st.title("Home")
@@ -33,6 +67,8 @@ elif menu == "About":
 elif menu == "Contact":
     st.title("Contact")
     st.write("Feel free to contact us at example@example.com.")
+
+
 
 
 
