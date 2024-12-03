@@ -63,7 +63,7 @@ if st.button("Fetch Tweet Counts"):
     else:
         try:
             # Define time periods
-            end_time = datetime.utcnow().isoformat("T") + "Z"  # Current time in UTC
+            end_time = (datetime.utcnow() - timedelta(seconds=10)).isoformat("T") + "Z"
             one_day_ago = (datetime.utcnow() - timedelta(days=1)).isoformat("T") + "Z"
             seven_days_ago = (datetime.utcnow() - timedelta(days=7)).isoformat("T") + "Z"
             thirty_days_ago = (datetime.utcnow() - timedelta(days=30)).isoformat("T") + "Z"
