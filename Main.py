@@ -22,15 +22,6 @@ access_token_secret = "GGJcu8ksG3lSrnlOa4vl3xWn7uFhD0eO1uyRA4Mwn08Vx"
 
 
 # Main content based on navigation selection
-if menu == "Home":
-    st.title("Home")
-    st.write("Welcome to the Home page!")
-elif menu == "About":
-    st.title("About")
-    st.write("This app demonstrates a basic sidebar navigation.")
-elif menu == "Contact":
-    st.title("Contact")
-    st.write("Feel free to contact us at example@example.com.")
 
 
 
