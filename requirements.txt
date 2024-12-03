@@ -1,2 +1,3 @@
 streamlit
 twikit==2.2.0
+tweey==4.14.0
