@@ -9,6 +9,8 @@ from datetime import datetime, timedelta
 import requests
 import twikit
 import tweepy
+from bs4 import BeautifulSoup
+
 
 # Input your API credentials
 api_key = "5Od9JIeK9BDVnOjjgQvvSdVAh"
