@@ -9,7 +9,13 @@ import requests
 import twikit
 from twikit import client, too many requests 
 
+# Input your API credentials
+api_key = st.text_input("5Od9JIeK9BDVnOjjgQvvSdVAh", type="password")
+api_secret = st.text_input("djtjd1gRUvTki5YRLl006rGsjpQ3SzMJYfji317XvE1XYBSrrf", type="password")
+access_token = st.text_input("744622183-PYWccpQMhkATqVZpERjasovNDcer3U54bdDuNRPY", type="password")
+access_token_secret = st.text_input("GGJcu8ksG3lSrnlOa4vl3xWn7uFhD0eO1uyRA4Mwn08Vx", type="password")
 
+#Bearer AAAAAAAAAAAAAAAAAAAAAD5OxQEAAAAAXI1jaL%2FDeiCB6yERuuax5dIm%2BuU%3DtHW0CzBCgwgHX7nQgrCRbHlFNYsfaDnEmmLBkhnrTC8XmymcHV
 
 
 # Sidebar navigation
