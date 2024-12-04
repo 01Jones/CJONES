@@ -24,30 +24,13 @@ access_token_secret = "GGJcu8ksG3lSrnlOa4vl3xWn7uFhD0eO1uyRA4Mwn08Vx"
 
 
 # Sidebar Navigation
-st.sidebar.title("Navigation")
-page = st.sidebar.radio("Select a page", ["Home", "Watchlist", "Twitter", "XXXXX"])
-
-# Display content based on page selection
-if page == "Home":
-    st.title("Home Page")
-    st.write("Welcome to the Home Page!")
-
-elif page == "Watchlist":
-    st.title("About Page")
-    st.write("This is the About Page.")
-
-elif page == "Twitter":
-    st.title("Contact Page")
-    st.write("This is the Contact Page. You can provide contact details here.")
-
-elif page == "XXXXX":
-    st.title("Contact Page")
-    st.write("This is the Contact Page. You can provide contact details here.")
+# Sidebar dropdown 
+option = st.sidebar.selectbox("Dashboard", ('Home', 'Economic Insights', 'Valuation Models', 'Performance', 'Company Insights', 'Comparison Analysis', 'Framework')) 
 
 
 
 # Streamlit app title
-def page_Twitter():
+if option == 'Home':
     st.title("Home Page")
     st.write("Welcome to the Home Page! Here's an overview of the website.")
     st.title("Ticker Tweet Tracker")
