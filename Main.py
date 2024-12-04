@@ -30,12 +30,14 @@ option = st.sidebar.selectbox("Dashboard", ('Home', 'Watchlist', 'Twitter', 'Per
 
 #Home Page
 if option == 'Home':
-
+    st.title("Twitter")
+    st.title("Tweet Tracker")
 
 
 #Watchlist Page
 if option == 'Watchlist':
-
+    st.title("Twitter")
+    st.title("Tweet Tracker")
 
     
 # Twitter Page
