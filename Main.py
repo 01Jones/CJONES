@@ -25,15 +25,14 @@ access_token_secret = "GGJcu8ksG3lSrnlOa4vl3xWn7uFhD0eO1uyRA4Mwn08Vx"
 
 # Sidebar Navigation
 # Sidebar dropdown 
-option = st.sidebar.selectbox("Dashboard", ('Home', 'Economic Insights', 'Valuation Models', 'Performance', 'Company Insights', 'Comparison Analysis', 'Framework')) 
+option = st.sidebar.selectbox("Dashboard", ('Home', 'Watchlist', 'Twitter', 'Performance', 'Company Insights', 'Comparison Analysis', 'Framework')) 
 
 
 
 # Streamlit app title
-if option == 'Home':
-    st.title("Home Page")
-    st.write("Welcome to the Home Page! Here's an overview of the website.")
-    st.title("Ticker Tweet Tracker")
+if option == 'Twitter':
+    st.title("Twitter")
+    st.title("Tweet Tracker")
     st.write("Enter a stock ticker to see the total number of tweets mentioning it over 1 day, 7 days, and 30 days.")
 
 # Input box for ticker
