@@ -45,7 +45,8 @@ if option == 'Twitter':
     st.title("Twitter")
     st.title("Tweet Tracker")
     st.write("Enter a stock ticker to see the total number of tweets mentioning it over 1 day, 7 days, and 30 days.")
-    def scrape_twitter_mentions(ticker):
+
+def scrape_twitter_mentions(ticker):
     # Example URL, this will not work for Twitter as it uses dynamic content
     url = f"https://twitter.com/search?q=${ticker}&src=typed_query"
     
@@ -62,17 +63,17 @@ if option == 'Twitter':
     return mentions
 
 # Streamlit app
-    st.title('Twitter Ticker Mentions Counter')
-    
-    # Input for stock ticker
-    ticker = st.text_input('Enter Ticker Symbol (e.g., AAPL, TSLA)', 'AAPL')
-    
-    if st.button('Get Mentions'):
-        if ticker:
-            mentions = scrape_twitter_mentions(ticker)
-            st.write(f"Ticker {ticker} has been mentioned {mentions} times.")
-        else:
-            st.write("Please enter a valid ticker symbol.")
+st.title('Twitter Ticker Mentions Counter')
+
+# Input for stock ticker
+ticker = st.text_input('Enter Ticker Symbol (e.g., AAPL, TSLA)', 'AAPL')
+
+if st.button('Get Mentions'):
+    if ticker:
+        mentions = scrape_twitter_mentions(ticker)
+        st.write(f"Ticker {ticker} has been mentioned {mentions} times.")
+    else:
+        st.write("Please enter a valid ticker symbol.")
 
 
 
