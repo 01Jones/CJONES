@@ -25,8 +25,19 @@ access_token_secret = "GGJcu8ksG3lSrnlOa4vl3xWn7uFhD0eO1uyRA4Mwn08Vx"
 
 # Main content based on navigation selection
 st.sidebar.title("Navigation")
-st.sidebar("Select a page", ["Home", "About", "Contact"])
+page = st.sidebar.selectbox("Select a page", ["Home", "About", "Contact"])
 
+if page == "Home":
+    st.title("Home Page")
+    st.write("Welcome to the Home Page!")
+
+elif page == "About":
+    st.title("About Page")
+    st.write("This is the About Page.")
+
+elif page == "Contact":
+    st.title("Contact Page")
+    st.write("This is the Contact Page. You can provide contact details here.")
 
 
 
