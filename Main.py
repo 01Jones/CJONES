@@ -55,60 +55,7 @@ def page_home():
 # Input box for ticker
     ticker = st.text_input("Enter a Ticker Symbol (e.g., AAPL, TSLA, MSFT):", value="$AAPL").strip()
 
-# Input for API Bearer Token
-    bearer_token = "AAAAAAAAAAAAAAAAAAAAAD5OxQEAAAAAXI1jaL%2FDeiCB6yERuuax5dIm%2BuU%3DtHW0CzBCgwgHX7nQgrCRbHlFNYsfaDnEmmLBkhnrTC8XmymcHV"
 
-# Function to fetch tweet counts
-    def fetch_tweet_counts(query, start_time, end_time, bearer_token):
-        """
-        Fetch tweet counts using Twitter API v2 'Tweet Counts' endpoint.
-        """
-        url = "https://api.twitter.com/2/tweets/counts/recent"
-        headers = {"Authorization": f"Bearer {bearer_token}"}
-        params = {"query": query, "granularity": "day", "start_time": start_time, "end_time": end_time}
-    
-        response = requests.get(url, headers=headers, params=params)
-        if response.status_code == 200:
-            data = response.json()
-            tweet_count = sum([entry["tweet_count"] for entry in data.get("data", [])])
-            return tweet_count
-        else:
-            st.error(f"Error {response.status_code}: {response.text}")
-            return None
-
-# Button to fetch tweet counts
-    if st.button("Fetch Tweet Counts"):
-        if not ticker or not bearer_token:
-            st.error("Please enter both a ticker symbol and your Twitter API Bearer Token.")
-        else:
-            try:
-            # Define time periods
-            end_time = (datetime.utcnow() - timedelta(seconds=10)).isoformat("T") + "Z"
-            one_day_ago = (datetime.utcnow() - timedelta(days=1)).isoformat("T") + "Z"
-            seven_days_ago = (datetime.utcnow() - timedelta(days=7)).isoformat("T") + "Z"
-            thirty_days_ago = (datetime.utcnow() - timedelta(days=30)).isoformat("T") + "Z"
-
-            # Define query
-            query = f"{ticker} -is:retweet"
-
-            # Fetch tweet counts
-            st.write("Fetching tweet counts...")
-            one_day_count = fetch_tweet_counts(query, one_day_ago, end_time, bearer_token)
-            seven_day_count = fetch_tweet_counts(query, seven_days_ago, end_time, bearer_token)
-            thirty_day_count = fetch_tweet_counts(query, thirty_days_ago, end_time, bearer_token)
-
-            # Display results
-            if one_day_count is not None and seven_day_count is not None and thirty_day_count is not None:
-                st.success("Tweet counts fetched successfully!")
-                data = {
-                    "Time Period": ["Last 1 Day", "Last 7 Days", "Last 30 Days"],
-                    "Tweet Count": [one_day_count, seven_day_count, thirty_day_count]
-                }
-                df = pd.DataFrame(data)
-                st.table(df)
-
-        except Exception as e:
-            st.error(f"An error occurred: {e}")
 
 
 
