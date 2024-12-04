@@ -25,7 +25,7 @@ access_token_secret = "GGJcu8ksG3lSrnlOa4vl3xWn7uFhD0eO1uyRA4Mwn08Vx"
 
 # Sidebar Navigation
 st.sidebar.title("Navigation")
-if st.sidebar.button("Home"):
+if st.sidebar.radio("Home"):
     page = "Home"
 elif st.sidebar.button("About"):
     page = "About"
