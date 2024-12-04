@@ -28,8 +28,17 @@ access_token_secret = "GGJcu8ksG3lSrnlOa4vl3xWn7uFhD0eO1uyRA4Mwn08Vx"
 option = st.sidebar.selectbox("Dashboard", ('Home', 'Watchlist', 'Twitter', 'Performance', 'Company Insights', 'Comparison Analysis', 'Framework')) 
 
 
+#Home Page
+if option == 'Home':
 
-# Streamlit app title
+
+
+#Watchlist Page
+if option == 'Watchlist':
+
+
+    
+# Twitter Page
 if option == 'Twitter':
     st.title("Twitter")
     st.title("Tweet Tracker")
