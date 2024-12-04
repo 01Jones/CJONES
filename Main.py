@@ -24,7 +24,7 @@ access_token_secret = "GGJcu8ksG3lSrnlOa4vl3xWn7uFhD0eO1uyRA4Mwn08Vx"
 
 
 # Sidebar Navigation
-# Sidebar dropdown 
+st.sidebar.markdown('<h1 style="font-size: 30px;">Navigation</h1>', unsafe_allow_html=True)
 option = st.sidebar.radio("Dashboard", ('Home', 'Watchlist', 'Twitter', 'Performance', 'Company Insights', 'Comparison Analysis', 'Framework')) 
 
 
