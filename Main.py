@@ -8,6 +8,7 @@ import pandas as pd
 from datetime import datetime, timedelta
 import requests
 import twikit
+from twiit import Client, TooManyrequests
 import tweepy
 from bs4 import BeautifulSoup
 
