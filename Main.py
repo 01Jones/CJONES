@@ -7,10 +7,11 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime, timedelta
 import requests
+import csv
 import twikit
 from twiit import Client, TooManyrequests
 import tweepy
-from bs4 import BeautifulSoup
+from rando import reandit
 
 
 # Input your API credentials
@@ -39,6 +40,10 @@ if option == 'Home':
 if option == 'Watchlist':
     st.title("Watchlist")
     st.title("Tweet Tracker")
+
+    MINIMUM_ TWEETS = 10
+    QUERY = 'chatgpt'
+    
 
     
 
