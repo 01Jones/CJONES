@@ -47,39 +47,41 @@ elif page == "XXXXX":
 
 
 # Streamlit app title
-st.title("Ticker Tweet Tracker")
-st.write("Enter a stock ticker to see the total number of tweets mentioning it over 1 day, 7 days, and 30 days.")
+def page_home():
+
+    st.title("Ticker Tweet Tracker")
+    st.write("Enter a stock ticker to see the total number of tweets mentioning it over 1 day, 7 days, and 30 days.")
 
 # Input box for ticker
-ticker = st.text_input("Enter a Ticker Symbol (e.g., AAPL, TSLA, MSFT):", value="$AAPL").strip()
+    ticker = st.text_input("Enter a Ticker Symbol (e.g., AAPL, TSLA, MSFT):", value="$AAPL").strip()
 
 # Input for API Bearer Token
-bearer_token = "AAAAAAAAAAAAAAAAAAAAAD5OxQEAAAAAXI1jaL%2FDeiCB6yERuuax5dIm%2BuU%3DtHW0CzBCgwgHX7nQgrCRbHlFNYsfaDnEmmLBkhnrTC8XmymcHV"
+    bearer_token = "AAAAAAAAAAAAAAAAAAAAAD5OxQEAAAAAXI1jaL%2FDeiCB6yERuuax5dIm%2BuU%3DtHW0CzBCgwgHX7nQgrCRbHlFNYsfaDnEmmLBkhnrTC8XmymcHV"
 
 # Function to fetch tweet counts
-def fetch_tweet_counts(query, start_time, end_time, bearer_token):
-    """
-    Fetch tweet counts using Twitter API v2 'Tweet Counts' endpoint.
-    """
-    url = "https://api.twitter.com/2/tweets/counts/recent"
-    headers = {"Authorization": f"Bearer {bearer_token}"}
-    params = {"query": query, "granularity": "day", "start_time": start_time, "end_time": end_time}
+    def fetch_tweet_counts(query, start_time, end_time, bearer_token):
+        """
+        Fetch tweet counts using Twitter API v2 'Tweet Counts' endpoint.
+        """
+        url = "https://api.twitter.com/2/tweets/counts/recent"
+        headers = {"Authorization": f"Bearer {bearer_token}"}
+        params = {"query": query, "granularity": "day", "start_time": start_time, "end_time": end_time}
     
-    response = requests.get(url, headers=headers, params=params)
-    if response.status_code == 200:
-        data = response.json()
-        tweet_count = sum([entry["tweet_count"] for entry in data.get("data", [])])
-        return tweet_count
-    else:
-        st.error(f"Error {response.status_code}: {response.text}")
-        return None
+        response = requests.get(url, headers=headers, params=params)
+        if response.status_code == 200:
+            data = response.json()
+            tweet_count = sum([entry["tweet_count"] for entry in data.get("data", [])])
+            return tweet_count
+        else:
+            st.error(f"Error {response.status_code}: {response.text}")
+            return None
 
 # Button to fetch tweet counts
-if st.button("Fetch Tweet Counts"):
-    if not ticker or not bearer_token:
-        st.error("Please enter both a ticker symbol and your Twitter API Bearer Token.")
-    else:
-        try:
+    if st.button("Fetch Tweet Counts"):
+        if not ticker or not bearer_token:
+            st.error("Please enter both a ticker symbol and your Twitter API Bearer Token.")
+        else:
+            try:
             # Define time periods
             end_time = (datetime.utcnow() - timedelta(seconds=10)).isoformat("T") + "Z"
             one_day_ago = (datetime.utcnow() - timedelta(days=1)).isoformat("T") + "Z"
