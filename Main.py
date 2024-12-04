@@ -25,18 +25,18 @@ access_token_secret = "GGJcu8ksG3lSrnlOa4vl3xWn7uFhD0eO1uyRA4Mwn08Vx"
 
 # Sidebar Navigation
 # Sidebar dropdown 
-option = st.sidebar.selectbox("Dashboard", ('Home', 'Watchlist', 'Twitter', 'Performance', 'Company Insights', 'Comparison Analysis', 'Framework')) 
+option = st.sidebar.radio("Dashboard", ('Home', 'Watchlist', 'Twitter', 'Performance', 'Company Insights', 'Comparison Analysis', 'Framework')) 
 
 
 #Home Page
 if option == 'Home':
-    st.title("Twitter")
-    st.title("Tweet Tracker")
+    st.title("Home")
+    st.title("Home Page")
 
 
 #Watchlist Page
 if option == 'Watchlist':
-    st.title("Twitter")
+    st.title("Watchlist")
     st.title("Tweet Tracker")
 
     
