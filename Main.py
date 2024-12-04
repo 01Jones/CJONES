@@ -25,15 +25,9 @@ access_token_secret = "GGJcu8ksG3lSrnlOa4vl3xWn7uFhD0eO1uyRA4Mwn08Vx"
 
 # Sidebar Navigation
 st.sidebar.title("Navigation")
-if st.sidebar.radio("Home"):
-    page = "Home"
-elif st.sidebar.button("About"):
-    page = "About"
-elif st.sidebar.button("Contact"):
-    page = "Contact"
-else:
-    page = "Home"  # Default page
+page = st.sidebar.radio("Select a page", ["Home", "About", "Contact"])
 
+# Display content based on page selection
 if page == "Home":
     st.title("Home Page")
     st.write("Welcome to the Home Page!")
