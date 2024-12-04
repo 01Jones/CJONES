@@ -24,7 +24,8 @@ access_token_secret = "GGJcu8ksG3lSrnlOa4vl3xWn7uFhD0eO1uyRA4Mwn08Vx"
 
 
 # Main content based on navigation selection
-
+st.sidebar.title("Navigation")
+page = st.sidebar.radio("Select a page", ["Home", "About", "Contact"])
 
 
 
