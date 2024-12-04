@@ -23,7 +23,7 @@ access_token_secret = "GGJcu8ksG3lSrnlOa4vl3xWn7uFhD0eO1uyRA4Mwn08Vx"
 
 
 
-# Main content based on navigation selection
+# Sidebar Navigation
 st.sidebar.title("Navigation")
 if st.sidebar.button("Home"):
     page = "Home"
