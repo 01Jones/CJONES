@@ -47,8 +47,9 @@ elif page == "XXXXX":
 
 
 # Streamlit app title
-def page_home():
-
+def page_Twitter Tracker():
+    st.title("Home Page")
+    st.write("Welcome to the Home Page! Here's an overview of the website.")
     st.title("Ticker Tweet Tracker")
     st.write("Enter a stock ticker to see the total number of tweets mentioning it over 1 day, 7 days, and 30 days.")
 
