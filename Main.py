@@ -9,10 +9,9 @@ from datetime import datetime, timedelta
 import requests
 import csv
 import twikit
-from twiit import Client, TooManyrequests
-import tweepy
-from rando import reandit
-
+from twikit import Client, TooManyrequests
+from random import randit
+from configparser import ConfigParser
 
 # Input your API credentials
 api_key = "5Od9JIeK9BDVnOjjgQvvSdVAh"
