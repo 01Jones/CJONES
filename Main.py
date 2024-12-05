@@ -20,7 +20,7 @@ access_token_secret = "GGJcu8ksG3lSrnlOa4vl3xWn7uFhD0eO1uyRA4Mwn08Vx"
 
 
 # Sidebar Navigation
-st.sidebar.markdown('Navigation</h1>')
+st.sidebar.markdown('Navigation')
 option = st.sidebar.radio("Select a page", ('Home', 'Watchlist', 'Twitter', 'Performance', 'Company Insights', 'Comparison Analysis', 'Framework')) 
 
 
