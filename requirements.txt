@@ -1,3 +1,4 @@
-pip install git+https://github.com/example/twikit.git
 streamlit
+requests
 twikit==2.2.0
+git+https://github.com/example/twikit.git
