@@ -40,9 +40,6 @@ if option == 'Watchlist':
     st.title("Watchlist")
     st.title("Tweet Tracker")
 
-    MINIMUM_ TWEETS = 10
-    QUERY = 'chatgpt'
-    
 
     
 
