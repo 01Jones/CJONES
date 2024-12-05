@@ -8,6 +8,7 @@ from datetime import datetime, timedelta
 import requests
 import csv
 import twikit
+from twikit import Client, TooManyRequests
 
 # Input your API credentials
 api_key = "5Od9JIeK9BDVnOjjgQvvSdVAh"
