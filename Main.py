@@ -34,11 +34,3 @@ if option == 'Home':
 if option == 'Watchlist':
     st.title("Watchlist")
     st.title("Tweet Tracker")
-
-
-    
-
-
-
-
-
