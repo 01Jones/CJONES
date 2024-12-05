@@ -2,8 +2,7 @@
 # Nasdaq API KtkauE_-pic1EFrCBFb4
 
 # app.py
-
-import streamlit as st
+pip install twikit
 import pandas as pd
 from datetime import datetime, timedelta
 import requests
