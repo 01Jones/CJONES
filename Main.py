@@ -9,6 +9,7 @@ import requests
 import csv
 import twikit
 from twikit import Client, TooManyRequests
+from random import randint
 
 # Input your API credentials
 api_key = "5Od9JIeK9BDVnOjjgQvvSdVAh"
