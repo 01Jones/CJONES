@@ -8,7 +8,6 @@ from datetime import datetime, timedelta
 import requests
 import csv
 import twikit
-from random import randit
 from configparser import ConfigParser
 
 # Input your API credentials
