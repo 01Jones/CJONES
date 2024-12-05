@@ -2,7 +2,7 @@
 # Nasdaq API KtkauE_-pic1EFrCBFb4
 
 # app.py
-pip install twikit
+
 import pandas as pd
 from datetime import datetime, timedelta
 import requests
