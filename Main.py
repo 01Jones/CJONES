@@ -17,6 +17,9 @@ api_secret = "djtjd1gRUvTki5YRLl006rGsjpQ3SzMJYfji317XvE1XYBSrrf"
 access_token = "744622183-PYWccpQMhkATqVZpERjasovNDcer3U54bdDuNRPY"
 access_token_secret = "GGJcu8ksG3lSrnlOa4vl3xWn7uFhD0eO1uyRA4Mwn08Vx"
 #Bearer AAAAAAAAAAAAAAAAAAAAAD5OxQEAAAAAXI1jaL%2FDeiCB6yERuuax5dIm%2BuU%3DtHW0CzBCgwgHX7nQgrCRbHlFNYsfaDnEmmLBkhnrTC8XmymcHV
+USERNAME = 'example_user'
+EMAIL = 'email@example.com'
+PASSWORD = 'password0000'
 
 
 
