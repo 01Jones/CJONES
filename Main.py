@@ -10,6 +10,11 @@ import csv
 import twikit
 from twikit import Client, TooManyRequests
 from random import randint
+import yfinance as yf
+
+# fred API 49dc69fb7e224d27e8cd2f5b4830ac9f
+# Nasdaq API KtkauE_-pic1EFrCBFb4
+# KtkauE_-pic1EFrCBFb4
 
 # Input your API credentials
 api_key = "5Od9JIeK9BDVnOjjgQvvSdVAh"
