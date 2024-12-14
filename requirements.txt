@@ -1,4 +1,5 @@
 streamlit
 requests
 twikit==1.7.6
+yfinance==0.1.68
 #git+https://github.com/your-username/twikit.git
